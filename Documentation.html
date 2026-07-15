@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinPowerTool - Professional Documentation</title>
+    <style>
+        :root {
+            --primary: #E60023;
+            --primary-hover: #ad081b;
+            --bg: #f8f9fa;
+            --sidebar-bg: #1a1a1a;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border: #e9ecef;
+            --card-bg: #ffffff;
+            --code-bg: #f1f3f5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: var(--bg);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 30px 20px;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            color: #ffffff;
+            background-color: var(--primary);
+        }
+
+        /* Main Content Panel */
+        .content {
+            margin-left: 320px;
+            padding: 50px 40px;
+            max-width: 900px;
+            flex-grow: 1;
+        }
+
+        .content section {
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Code blocks */
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #f8f8f2;
+        }
+
+        /* Info Alert Boxes */
+        .alert {
+            background-color: #fff9db;
+            border-left: 4px solid #fcc419;
+            padding: 15px 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+        }
+
+        .alert.info {
+            background-color: #e8f4fd;
+            border-left-color: #2196f3;
+        }
+
+        .alert.danger {
+            background-color: #ffe3e3;
+            border-left-color: #fa5252;
+        }
+
+        .alert p {
+            margin: 0;
+            color: #2b2b2b;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 992px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: auto;
+                position: relative;
+                box-shadow: none;
+                padding: 20px;
+            }
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>PinPowerTool</h2>
+        <ul>
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#requirements">System Requirements</a></li>
+            <li><a href="#installation">Installation Guide</a></li>
+            <li><a href="#wizard">First-Run Wizard</a></li>
+            <li><a href="#accounts">Multi-Account Management</a></li>
+            <li><a href="#repurposer">Content Repurposer</a></li>
+            <li><a href="#automation">Automation Suite</a></li>
+            <li><a href="#safety">Safety Best Practices</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <section id="intro">
+            <h1>PinPowerTool Documentation</h1>
+            <p>Welcome to the official documentation for <strong>PinPowerTool</strong>, a comprehensive Pinterest automation suite designed for digital marketers, creators, and business owners looking to scale their organic presence. Built with Python 3.14 and PyQt6, PinPowerTool offers desktop-class stability, proxy support, multi-account rotation, and premium content repurposing features.</p>
+            
+            <div class="alert info">
+                <p><strong>Publisher Credits:</strong> Designed & Developed by <strong>Suporter</strong>. Sold exclusively on CodeCanyon.</p>
+            </div>
+        </section>
+
+        <section id="requirements">
+            <h2>System Requirements</h2>
+            <p>Before running or installing PinPowerTool, ensure your system meets the following prerequisites:</p>
+            <ul>
+                <li><strong>Operating System:</strong> Windows 10 or Windows 11 (64-bit).</li>
+                <li><strong>Browser:</strong> Google Chrome or Microsoft Edge (must be installed on the system).</li>
+                <li><strong>Network:</strong> Standard internet connection (proxies recommended for running multiple accounts).</li>
+            </ul>
+        </section>
+
+        <section id="installation">
+            <h2>Installation Guide</h2>
+            <p>To install PinPowerTool on your computer, follow these simple steps:</p>
+            <ol>
+                <li>Double-click the installer executable: <code>PinPowerTool_Setup.exe</code>.</li>
+                <li>Follow the wizard to choose your installation directory (installed to <code>Program Files</code> by default).</li>
+                <li>(Optional) Choose if you want to create a desktop shortcut and a quick launch icon.</li>
+                <li>Click <strong>Install</strong>. Once completed, check "Launch PinPowerTool" and click Finish.</li>
+            </ol>
+            
+            <div class="alert">
+                <p><strong>Note:</strong> All user configurations, database entries, and settings are securely stored in your user's AppData directory (<code>%APPDATA%/PinPowerTool</code>). This allows updates to be installed seamlessly without losing any of your data.</p>
+            </div>
+        </section>
+
+        <section id="wizard">
+            <h2>First-Run Startup Wizard</h2>
+            <p>On launching the application for the first time, you will be greeted by the Startup Wizard to configure your initial preferences:</p>
+            <ul>
+                <li><strong>Preferred Browser:</strong> Choose which browser engine (Chrome, Firefox, Edge) the automation should simulate.</li>
+                <li><strong>Theme Choice:</strong> Select between a premium Dark Mode stylesheet or a clean Light Mode style.</li>
+                <li><strong>Minimize on Close:</strong> Choose if clicking the close (X) button should exit the program completely or minimize it to the System Tray to continue schedules in the background.</li>
+            </ul>
+        </section>
+
+        <section id="accounts">
+            <h2>Multi-Account Management</h2>
+            <p>Manage multiple Pinterest accounts simultaneously with built-in isolation:</p>
+            <h3>Adding Accounts</h3>
+            <ol>
+                <li>Navigate to the <strong>Accounts</strong> tab in the sidebar.</li>
+                <li>Click <strong>Add Account</strong>.</li>
+                <li>Provide the Pinterest login email and password.</li>
+                <li>(Recommended) Add a proxy in the format: <code>ip:port:username:password</code>. Assigning a unique proxy to each account keeps your IP footprints clean.</li>
+                <li>Click <strong>Verify & Save</strong>. The software will launch a headless browser session to log in once, save cookies, and complete authentication.</li>
+            </ol>
+        </section>
+
+        <section id="repurposer">
+            <h2>Content Repurposer</h2>
+            <p>Download trending, watermark-free videos from TikTok, Instagram Reels, or YouTube Shorts and schedule them directly to your Pinterest boards:</p>
+            <ol>
+                <li>Go to the <strong>Repurposer</strong> tab in the sidebar.</li>
+                <li>Paste any TikTok, Reels, or Shorts URL in the downloader field and click <strong>Download Video</strong>.</li>
+                <li>The downloader automatically rotates fallback channels (yt-dlp, Cobalt API, TikWM API) to retrieve the highest quality watermark-free video.</li>
+                <li>Downloaded files appear in a local visual content library grid.</li>
+                <li>Select a video, fill in the Title, Description, Target URL, and Board, then click <strong>Post to Pinterest</strong>.</li>
+            </ol>
+        </section>
+
+        <section id="automation">
+            <h2>Automation Suite</h2>
+            <p>Scale your engagement with multiple automated task modules:</p>
+            <ul>
+                <li><strong>Auto-Repin:</strong> Re-pin existing content to your boards using smart keyword and niche filters.</li>
+                <li><strong>Auto-Upload:</strong> Batch upload images and videos using folder paths and metadata templates.</li>
+                <li><strong>Auto-Follow/Unfollow:</strong> Automatically grow your audience by target profile keywords or followers.</li>
+                <li><strong>Auto-Comment:</strong> Automatically post template comments on popular pins to drive organic traffic back to your website.</li>
+                <li><strong>Scheduler:</strong> Queue and schedule all operations at specific intervals or times of day.</li>
+            </ul>
+        </section>
+
+        <section id="safety">
+            <h2>Safety Best Practices</h2>
+            <p>Pinterest actively monitors for botting and automation. To protect your accounts from suspensions, always follow these rules:</p>
+            <div class="alert danger">
+                <p><strong>Rate Limits:</strong> Do not post more than 15-20 pins per day per account. Keep comments below 30 per day.</p>
+            </div>
+            <ul>
+                <li><strong>Delay Timing:</strong> Use random delays between 30 and 120 seconds for actions.</li>
+                <li><strong>Warmup Sessions:</strong> Enable the Warmup option in the Settings tab to let the browser search and scroll Pinterest naturally for 10-15 minutes daily before starting automations.</li>
+                <li><strong>Proxies:</strong> Always assign high-quality residential or mobile proxies when running more than 3 accounts.</li>
+            </ul>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            <h3>Headless Browser Fails to Launch</h3>
+            <p>Ensure Playwright dependencies are set up correctly. If you are a developer compiling from source, run: <code>playwright install chromium</code>.</p>
+            
+            <h3>Download Fails</h3>
+            <p>Social media platforms frequently change their layouts. If the universal downloader fails, check for application updates on CodeCanyon, which include updated parser dependencies.</p>
+        </section>
+
+        <div class="footer">
+            <p>© 2026 Suporter. All rights reserved. Powered by Suporter.</p>
+        </div>
+    </div>
+
+</body>
+</html>
